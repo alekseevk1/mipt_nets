@@ -27,7 +27,7 @@ PING 192.168.1.10 (192.168.1.10): 56 data bytes
 --- 192.168.1.10 ping statistics ---
 5 packets transmitted, 5 packets received, 0% packet loss
 round-trip min/avg/max = 0.125/0.198/0.418 ms
-
+```
 
 смотрим что в выдержке из tcpdump:
 
@@ -55,7 +55,7 @@ round-trip min/avg/max = 0.125/0.198/0.418 ms
 10 packets captured
 10 packets received by filter
 0 packets dropped by kernel
-
+```
 
 #### Содержимое MAC-таблиц:
 
@@ -70,7 +70,7 @@ port no mac addr                is local?       ageing timer
   2     aa:c1:ab:eb:86:38       yes                0.00
   2     aa:c1:ab:eb:86:38       yes                0.00
   2     aa:c1:ab:f6:ab:c2       no                25.73
-
+```
 
 ##### br2:
 
@@ -83,7 +83,7 @@ port no mac addr                is local?       ageing timer
   2     aa:c1:ab:a0:8f:6b       yes                0.00
   2     aa:c1:ab:eb:86:38       no               284.90
   1     aa:c1:ab:f6:ab:c2       no               186.60
-
+```
 
 
 Как раз видим сначала идет ARP-запрос: host2 (MAC aa:c1:ab:f6:ab:c2) спрашивает у всех: "У кого IP 192.168.1.10?"
@@ -104,7 +104,7 @@ PING 192.168.1.20 (192.168.1.20): 56 data bytes
 
 --- 192.168.1.20 ping statistics ---
 10 packets transmitted, 0 packets received, 100% packet loss
-
+```
 А в tcpdump:
 
 ```bash
@@ -207,7 +207,7 @@ tcpdump: listening on eth1, link-type EN10MB (Ethernet), snapshot length 262144 
 50 packets captured
 3152 packets received by filter
 0 packets dropped by kernel
-
+```
 
 Получилось что? очень нагрелся ноут(боялся даже что что-то пойдет не так)
 Видим, что не пингуется.
@@ -243,7 +243,7 @@ PING 192.168.1.20 (192.168.1.20): 56 data bytes
 --- 192.168.1.20 ping statistics ---
 10 packets transmitted, 10 packets received, 0% packet loss
 round-trip min/avg/max = 0.068/0.124/0.154 ms
-
+```
 В выдержке:
 
 ```bash
@@ -278,7 +278,7 @@ tcpdump: listening on eth1, link-type EN10MB (Ethernet), snapshot length 262144 
 10 packets captured
 10 packets received by filter
 0 packets dropped by kernel
-
+```
 
 сеть исцелилась.
 
@@ -322,7 +322,7 @@ eth3 (3)
  designated port        8003                    forward delay timer        0.00
  designated cost           0                    hold timer                 0.00
  flags
-
+```
 
 На 2:
 
@@ -364,6 +364,7 @@ eth3 (3)
  designated port        8003                    forward delay timer        0.00
  designated cost           0                    hold timer                 0.00
  flags
+```
 
 бридж с MAC aa:c1:ab:1e:1e:35 является корневым, потому что bridge id = 8000.aac1ab1e1e35 — это ID текущего бриджа и
 designated root = 8000.aac1ab1e1e35 — корневой бридж совпадает с текущим
